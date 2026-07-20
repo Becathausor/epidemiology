@@ -155,7 +155,7 @@ Le modèle SIRD modélise l'épidémie en identifiant 4 populations:
 - R: Rémission
 - D: Décédé
 
-On ajoute la population $N = S + I + R$ du nombre d'individus.
+On ajoute la population $N = S + I + R + D$ du nombre d'individus.
 
 Pour le modèle on a 5 paramètres:
 - $\beta$ le coefficient d'infection
@@ -172,12 +172,3 @@ $$\frac{dR}{dt} = \gamma I - \mu_{nat} R$$
 $$\frac{dD}{dt} = \mu I + \mu_{nat} N$$
 
 Dans la simulation disponible via l'API FastAPI, on a le cas SIRDVital qui prend en compte la mortalité et la natalité naturelle et la considérant comme indépendante de la maladie. Dans le cas SIRD classique, on a les paramètres naturels fixés à 0. 
-
-## Documentation (à faire)
-
-La documentation Sphinx (docstrings au format NumPy) se construit depuis
-`docs/` :
-
-```bash
-cd docs && make html
-```
