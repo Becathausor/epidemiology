@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 from scipy.optimize import brentq
 
-from epidemio_sim.core.models import SIRD, SIRDVital
+from epidemio_sim.core import SIRD, SIRDVital
 
 T_GRID = np.linspace(0.0, 100.0, 200)
 

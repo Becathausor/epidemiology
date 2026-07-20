@@ -11,7 +11,7 @@ from epidemio_sim.calibration.fit import (
     residuals,
 )
 from epidemio_sim.calibration.optimizers import SGD, Adam, Momentum, RMSprop
-from epidemio_sim.core.models import SIRD, SIRDVital
+from epidemio_sim.core import SIRD, SIRDVital
 from epidemio_sim.io.loaders import generate_synthetic_data
 
 T_GRID = np.linspace(0.0, 60.0, 61)
