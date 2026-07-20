@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>epidemio-sim — simulateur</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>epidemio-sim — simulateur SIRD</h1>
+    <p>
+      Statut API : <span id="health-indicator" class="status-unknown">vérification…</span>
+    </p>
+  </header>
+
+  <main>
+    <form id="sim-form">
+      <fieldset>
+        <legend>Modèle</legend>
+        <label>
+          Modèle
+          <select id="model" name="model">
+            <option value="SIRD" selected>SIRD</option>
+            <option value="SIRDVital">SIRDVital (natalité / mortalité)</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>État initial</legend>
+        <label>Population <input type="number" id="population" value="1000" min="0" step="1" /></label>
+        <label>S0 <input type="number" id="s0" value="990" min="0" step="1" /></label>
+        <label>I0 <input type="number" id="i0" value="10" min="0" step="1" /></label>
+        <label>R0 <input type="number" id="r0" value="0" min="0" step="1" /></label>
+        <label>D0 <input type="number" id="d0" value="0" min="0" step="1" /></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Paramètres épidémiologiques</legend>
+        <label>beta <input type="number" id="beta" value="0.3" min="0" step="0.01" /></label>
+        <label>gamma <input type="number" id="gamma" value="0.1" min="0" step="0.01" /></label>
+        <label>mu <input type="number" id="mu" value="0.02" min="0" step="0.01" /></label>
+      </fieldset>
+
+      <fieldset id="vital-fields" class="hidden">
+        <legend>Dynamique vitale (SIRDVital)</legend>
+        <label>birth_rate <input type="number" id="birth_rate" value="0.01" min="0" step="0.001" /></label>
+        <label>natural_death_rate <input type="number" id="natural_death_rate" value="0.005" min="0" step="0.001" /></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Simulation</legend>
+        <label>Temps de simulation (t_max) <input type="number" id="t_max" value="100" min="0" step="1" /></label>
+        <label>Précision (nombre de points) <input type="number" id="n_points" value="200" min="2" step="1" /></label>
+      </fieldset>
+
+      <fieldset id="noise-fields">
+        <legend>Bruit gaussien</legend>
+        <label>
+          <input type="checkbox" id="noise-enabled" />
+          Ajouter du bruit
+        </label>
+        <label>Niveau <input type="number" id="noise-level" value="0.05" min="0" step="0.01" disabled /></label>
+        <label>Seed <input type="number" id="noise-seed" placeholder="(aléatoire si vide)" step="1" disabled /></label>
+      </fieldset>
+
+      <button type="submit">Simuler</button>
+    </form>
+
+    <div id="error-banner" class="hidden" role="alert"></div>
+
+    <section id="chart-section">
+      <canvas id="chart" width="900" height="500"></canvas>
+      <div id="legend"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
