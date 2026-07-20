@@ -1,4 +1,4 @@
-"""Tests unitaires pour epidemio_sim.core.models."""
+"""Tests unitaires pour les modèles épidémiologiques de epidemio_sim.core."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from typing import ClassVar
 import numpy as np
 import pytest
 
-from epidemio_sim.core.models import (
+from epidemio_sim.core import (
     EpidemicModel,
     SIRD,
     SIRDParams,

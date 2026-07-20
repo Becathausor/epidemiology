@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 from epidemio_sim.calibration.fit import CalibrationResult
-from epidemio_sim.core.models import SimulationResult
+from epidemio_sim.core import SimulationResult
 
 
 def export_simulation_csv(result: SimulationResult, path: str | Path) -> None:

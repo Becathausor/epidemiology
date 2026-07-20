@@ -65,7 +65,7 @@ def test_euler_explicit_converges_as_dt_shrinks():
 def test_euler_explicit_not_wired_into_simulate():
     import inspect
 
-    from epidemio_sim.core.models import EpidemicModel
+    from epidemio_sim.core import EpidemicModel
 
     source = inspect.getsource(EpidemicModel.simulate)
     assert "euler" not in source.lower()

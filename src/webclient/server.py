@@ -17,7 +17,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from epidemio_sim import SIRD, SIRDVital, generate_synthetic_data
-from epidemio_sim.core.models import EpidemicModel
+from epidemio_sim.core import EpidemicModel
 
 app = FastAPI(title="epidemio-sim API", version="0.1.0")
 

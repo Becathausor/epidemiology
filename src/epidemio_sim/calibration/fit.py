@@ -15,7 +15,7 @@ import numpy.typing as npt
 import scipy.optimize
 
 from epidemio_sim.calibration.optimizers import Optimizer, run_optimizer
-from epidemio_sim.core.models import EpidemicModel
+from epidemio_sim.core import EpidemicModel
 
 ParamVector = npt.NDArray[np.float64]
 

@@ -9,7 +9,7 @@ import numpy.typing as npt
 from matplotlib.axes import Axes
 
 from epidemio_sim.calibration.fit import CalibrationData, CalibrationResult
-from epidemio_sim.core.models import EpidemicModel, SimulationResult
+from epidemio_sim.core import EpidemicModel, SimulationResult
 
 
 def plot_epidemic_curves(result: SimulationResult, ax: Axes | None = None) -> Axes:

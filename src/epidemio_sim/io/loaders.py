@@ -10,7 +10,7 @@ import numpy.typing as npt
 import pandas as pd
 
 from epidemio_sim.calibration.fit import CalibrationData
-from epidemio_sim.core.models import EpidemicModel
+from epidemio_sim.core import EpidemicModel
 
 ParamVector = npt.NDArray[np.float64]
 
