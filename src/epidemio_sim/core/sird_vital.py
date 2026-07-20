@@ -26,7 +26,7 @@ class SIRDVital(SIRD):
     dS/dt = -beta*S*I/N + birth_rate*N - natural_death_rate*S
     dI/dt = beta*S*I/N - gamma*I - mu*I - natural_death_rate*I
     dR/dt = gamma*I - natural_death_rate*R
-    dD/dt = mu*I
+    dD/dt = mu*I + natural_death_rate*N
 
     avec ``N = S+I+R``.
     """
@@ -53,6 +53,6 @@ class SIRDVital(SIRD):
         n_alive = self._effective_population(y)
         births = np.array([birth_rate * n_alive, 0.0, 0.0, 0.0])
         natural_deaths = np.array(
-            [natural_death_rate * S, natural_death_rate * I, natural_death_rate * R, 0.0]
+            [natural_death_rate * S, natural_death_rate * I, natural_death_rate * R, -natural_death_rate * n_alive]
         )
         return base + births - natural_deaths
