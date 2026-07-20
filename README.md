@@ -147,6 +147,17 @@ mypy src/epidemio_sim         # vérification de types stricte
 ruff check src tests          # lint
 ```
 
+## Documentation
+
+Documentation Sphinx (référence API générée depuis les docstrings NumPy +
+tutoriel) dans `docs/` :
+
+```bash
+sphinx-build -b html docs docs/_build/html
+```
+
+Puis ouvrir `docs/_build/html/index.html`.
+
 ## Description des modèles
 
 Le modèle SIRD modélise l'épidémie en identifiant 4 populations:
